@@ -1,0 +1,50 @@
+@import "./style.scss";
+body {
+    background: #f9f9f9;
+}
+.error-wrap {
+    padding-top: 3rem;
+    .cloud {
+        width: 4.24rem;
+        height: 2.58rem;
+        margin: 0 auto;
+        background-image: url(./images/error-cloud.png);
+        background-size: 4.24rem 2.58rem;
+    }
+    .error-detail {
+        margin-top: 1rem;
+        text-align: left;
+        font-size: $md-font-size;
+        color: $light-font-color;
+        width: 7rem;
+        margin: 1rem auto 0;
+        .error-text {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: $lg-font-size;
+            color: #333;
+        }
+    }
+    .btn-wrap {
+        text-align: center;
+        margin-top: 2rem;
+    }
+    .btn {
+        display: inline-block;
+        width: 3.45rem;
+        height: 1.2rem;
+        line-height: 1.2rem;
+        text-align: center;
+        font-size: $xl-font-size;
+        border-radius: 8px;
+        margin: 0 5px;
+    }
+    .retry-btn {
+        background: $primary-color;
+        color: #fff;
+    }
+    .call-btn {
+        border: 1px solid $primary-color;
+        color: $primary-color;
+    }
+}

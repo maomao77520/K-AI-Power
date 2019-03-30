@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>出错啦</title>
+    
+        <link href="../lib/weui.min.css" rel="stylesheet">
+    
+
+    
+        <script type="text/javascript" src="../lib/jquery.min.js"></script>
+    
+        <script type="text/javascript" src="../lib/flexible.min.js"></script>
+    
+        <script type="text/javascript" src="../lib/weixin-1.2.0.js"></script>
+    
+        <script type="text/javascript" src="../lib/weui.min.js"></script>
+    
+
+
+<link href="../css/error-a43f76eb.css" rel="stylesheet"></head>
+<body>
+    
+    <div class="error-wrap" id="J_error_wrap">
+        <div class="cloud"></div>
+    </div>
+
+    <script type="text/template" id="J_template">
+        <div class="error-detail">
+            <p class="error-text">{{= it.errorText}}</p>
+            <p>插座编号：<span class="error-slotIndex">{{= it.slotIndex}}</span></p>
+            <p>设备编号：<span class="error-deviceId">{{= it.deviceId}}</span></p>
+        </div>
+        <div class="btn-wrap">
+            <a href="javascript:;" class="btn retry-btn">换一个试试</a>
+            {{? it.errorCode == 1002}}
+            {{??}}
+            <a href="tel:4000808032" class="btn call-btn">我要报错</a>
+            {{?}}
+        </div>
+    </script>
+
+    
+        <script type="text/javascript" src="../lib/doT.min.js"></script>
+    
+<script type="text/javascript" src="../js/error-a43f76eb.js"></script></body>
+</html>

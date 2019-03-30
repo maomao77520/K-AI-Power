@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>充电记录</title>
+    <% for (var css in htmlWebpackPlugin.options.css) { %>
+        <link href="<%=htmlWebpackPlugin.options.css[css] %>" rel="stylesheet">
+    <% } %>
+
+    <% for (var prejs in htmlWebpackPlugin.options.prejs) { %>
+        <script type="text/javascript" src="<%=htmlWebpackPlugin.options.prejs[prejs] %>"></script>
+    <% } %>
+
+
+</head>
+<body>
+    <div class="record-wrap" id="J_record_wrap">
+    </div>
+
+    <script type="text/template" id="J_record_template">
+        <div class="top-bar">
+            <div class="order-finish">已支付订单：{{= it.finishedOrder}}</div>
+        </div>
+        <div class="record-list">
+            {{~ it.content:item:index}}
+            <a class="record-item" href="./finish.html?deviceId={{= item.deviceId}}&slotIndex={{= item.slotIndex}}&outTradeNo={{= item.outTradeNo}}">
+                <div class="line-1">
+                    <div class="order-addr">{{= item.location}}</div>
+                    <div class="order-status">{{? item.status == 0}}已支付{{?}}</div>
+                </div>
+                <div class="line-2">
+                    <div class="left-block">
+                        <div class="order-time-wrap">
+                            <i class="time-icon"></i>
+                            <span>下单时间：{{= item.startTime}}</span>
+                        </div>
+                        <div>
+                            <i class="price-icon"></i>
+                            <span>消费金额：{{= (item.payment/100).toFixed(2)}}元</span>
+                        </div>
+                    </div>
+                    <div class="right-block">
+                        <span>
+                        {{? item.chargerIndex >= 10}}
+                            {{= item.chargerIndex}}
+                        {{??}}
+                            0{{= item.chargerIndex}}
+                        {{?}}
+                        </span>
+                    </div>
+                </div>
+            </a>
+            {{~}}
+        </div>
+    </script>
+
+    <div id="toast" style="display: none;">
+        <div class="weui-mask_transparent"></div>
+        <div class="weui-toast toast-wrap">
+            <p class="weui-toast__content toast-text">加载失败</p>
+        </div>
+    </div>
+
+    <% for (var js in htmlWebpackPlugin.options.js) { %>
+        <script type="text/javascript" src="<%=htmlWebpackPlugin.options.js[js] %>"></script>
+    <% } %>
+</body>
+</html>

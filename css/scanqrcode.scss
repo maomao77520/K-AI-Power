@@ -1,0 +1,73 @@
+@import "./style.scss";
+.second-list-top {
+    background: #fff;
+    .list-item-wrap {
+        border-bottom: 0;
+    }
+}
+.second-list-block {
+    background: #fff;
+    margin-top: 0.2rem;
+    .second-list-item {
+        margin: 0 $primary-padding-left;
+        padding: $primary-padding-top 0;
+        display: flex;
+        border-bottom: 1px solid $border-color;
+        align-items: center;
+        &:last-child {
+            border-bottom: 0px;
+        }
+        .second-item-left {
+            width: 1rem;
+            height: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            line-height: 1rem;
+            background: $primary-color;
+            color: #fff;
+            margin-right: 0.32rem;
+            font-size: 0.45rem;
+        }
+        .second-item-right {
+            flex: 1;
+            .second-item-name {
+                font-size: $md-font-size;
+                color: $font-color;
+                line-height: 1.5;
+            }
+            .second-item-detail {
+                font-size: $sm-font-size;
+                color: $light-font-color;
+                line-height: 1.5;
+                .icon-wrap {
+                    .icon-text {
+                        width: 5em;
+                        display: inline-block;
+                    }
+                    i {
+                        width: 8px;
+                        height: 8px;
+                        display: inline-block;
+                        border-radius: 4px;
+
+                    }
+                }
+                .free-icon i {
+                    background: #09bb07;
+                }
+                .used-icon i {
+                    background: #f43530;
+                }
+            }
+        }
+        .second-item-icon {
+            width: 6px;
+            height: 6px;
+            border-top: 2px solid #c8c8cd;
+            border-right: 2px solid #c8c8cd;
+            transform: rotate(45deg);
+            float: right;
+            margin-right: 0.1rem;
+        }
+    }
+}

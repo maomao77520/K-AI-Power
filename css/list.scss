@@ -1,0 +1,117 @@
+@import "./style.scss";
+
+@keyframes opacityAni {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes movePhone {
+    0% {
+        margin-left: -3.32rem;
+    }
+    30% {
+        margin-left: 0;
+        left: 0;
+    }
+    70% {
+        left: 50%;
+        margin-left: 0;
+    }
+    100% {
+        left: 50%;
+        margin-left: -1.66rem;
+    }
+}
+
+@keyframes moveLine {
+    0% {
+        opacity: 1;
+        top: 3rem;
+    }
+    95% {
+        opacity: 1;
+        top: 4.75rem;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+body {
+    background: #f9f9f9;
+}
+.second-list-top {
+    .list-item-wrap {
+        border-bottom: 0;
+        background: #fff;
+        padding: 0.32rem;
+        margin: 0;
+    }
+}
+.scan-img {
+    height: 9rem;
+    position: relative;
+    box-sizing: border-box;
+    .qrcode-bg {
+        width: 2.92rem;
+        height: 4.88rem;
+        background-image: url(./images/scancode.png);
+        background-size: 2.93rem 4.88rem;
+        position: absolute;
+        top: 2.4rem;
+        left: 50%;
+        margin-left: -1.46rem;
+        opacity: 0;
+        animation: opacityAni 1s 0.2s linear;
+        animation-fill-mode: forwards;
+    }
+    .phone-img {
+        width: 3.32rem;
+        height: 6.27rem;
+        background-image: url(./images/phone.png);
+        background-repeat: no-repeat;
+        background-size: 3.33rem 6.27rem;
+        position: absolute;
+        top: 1.2rem;
+        margin-left: -3.32rem;
+        animation: movePhone 1s 1.2s linear;
+        animation-fill-mode: forwards;
+    }
+    .scan-line {
+        width: 1.8rem;
+        height: 1px;
+        background: #09bb07;
+        position: absolute;
+        left: 50%;
+        margin-left: -0.9rem;
+        top: 3rem;
+        opacity: 0;
+        animation: moveLine 2s 2.2s linear infinite;
+        animation-fill-mode: forwards;
+    }
+}
+
+.detail-btn-wrap {
+    width: 90%;
+    margin: 0.4rem auto;
+    .detail-bottom-btn {
+        background: $primary-color;
+        i {
+            display: inline-block;
+            content: '';
+            width: 0.4rem;
+            height: 0.4rem;
+            background-image: url(./images/sao-icon.png);
+            background-size: 0.4rem 0.4rem;
+            background-position: center center;
+            background-repeat: no-repeat;
+            vertical-align: middle;
+            margin-right: 4px;
+            position: relative;
+            top: -1px;
+        }
+    }
+}

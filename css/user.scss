@@ -1,0 +1,110 @@
+@import "./style.scss";
+
+.user-wrap {
+    .user-banner {
+        padding: $primary-padding-top $primary-padding-left;
+        background: $primary-color;
+        display: flex;
+        align-items: center;
+        .user-icon {
+            float: left;
+            width: 1.8rem;
+            height: 1.8rem;
+            margin-left: 0.5rem;
+            border-radius: 1rem;
+            background-size: 1.8rem 1.8rem;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+        .user-detail {
+            flex: 1;
+            height: 0.75rem;
+            margin-left: 0.4rem;
+            font-size: $lg-font-size;
+            color: #fff;
+        }
+        .user-name, .user-phone {
+            height: 0.75rem;
+            line-height: 0.75rem;
+        }
+        .arrow-icon {
+            width: 6px;
+            height: 6px;
+            border-top: 2px solid #c8c8cd;
+            border-right: 2px solid #c8c8cd;
+            transform: rotate(45deg);
+            float: right;
+            margin-right: 0.1rem;
+        }
+    }
+}
+.user-list-wrap {
+    margin-top: 0.2rem;
+    .charging-icon {
+        width: 16px;
+        height: 16px;
+        background-image: url(./images/charging-icon.png);
+        background-size: 16px 16px; 
+        margin-right: 6px;
+    }
+    .record-icon {
+        width: 16px;
+        height: 16px;
+        background-image: url(./images/record-icon.png);
+        background-size: 16px 16px; 
+        margin-right: 6px;
+    }
+    .apply-icon {
+        width: 16px;
+        height: 16px;
+        background-image: url(./images/card-apply-icon.png);
+        background-size: 16px 16px; 
+        margin-right: 6px;
+    }
+    .charge-icon {
+        width: 16px;
+        height: 16px;
+        background-image: url(./images/card-charge-icon.png);
+        background-size: 16px 16px; 
+        margin-right: 6px;
+    }
+    .near-icon {
+        width: 16px;
+        height: 17px;
+        background-image: url(./images/near-icon.png);
+        background-size: 16px 17px; 
+        margin-right: 6px;
+    }
+    .star-icon {
+        width: 16px;
+        height: 17px;
+        background-image: url(./images/star.png);
+        background-repeat: no-repeat;
+        background-size: 16px 16px; 
+        margin-right: 6px;
+    }
+}
+
+.account-wrap {
+    .head-icon {
+        width: 30px;
+        height: 30px;
+        border: 1px solid #eee;
+    }
+}
+.setPhone-wrap {
+    margin-top: 30px;
+    text-align: center;
+    .top-title {
+        font-size: $lg-font-size;
+        color: $font-color;
+    }
+    .top-des {
+        font-size: $sm-font-size;
+        color: $light-font-color;
+    }
+}
+.submit-btn {
+    margin-top: 20px;
+    width: 90%;
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>附近充电站</title>
+    
+        <link href="../lib/weui.min.css" rel="stylesheet">
+    
+
+    
+        <script type="text/javascript" src="../lib/jquery.min.js"></script>
+    
+        <script type="text/javascript" src="../lib/flexible.min.js"></script>
+    
+        <script type="text/javascript" src="../lib/weixin-1.2.0.js"></script>
+    
+        <script type="text/javascript" src="../lib/weui.min.js"></script>
+    
+
+    <script type="text/javascript" src="../lib/iscroll.js"></script>
+    
+<link href="../css/index-1978dd3b.css" rel="stylesheet"></head>
+<body>
+   
+    <div class="wrap">
+        <div class="top-bar">
+            <div class="city-select-wrap">
+                <a href="javascript:;" class="picker-wrap" id="J_city_picker">
+                    <span id="J_city_name">南宁</span>
+                    <i></i>
+                </a>
+            </div>
+            <div class="weui-search-bar search-bar-wrap" id="searchBar">
+                <form class="weui-search-bar__form" id="J_search_form" action="">
+                    
+                    <div class="weui-search-bar__box">
+                        <i class="weui-icon-search"></i>
+                        <input type="search" class="weui-search-bar__input search-input-box" id="searchInput" placeholder="搜索"/>
+                        <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+                    </div>
+                    <label class="weui-search-bar__label search-input-label" id="searchText">
+                        <i class="weui-icon-search"></i>
+                        <span>搜索</span>
+                    </label>
+                </form>
+            </div>
+            <div class="history-wrap">
+                <i></i>
+                <a href="./favourite.html" id="J_favourite">常用</a>
+            </div>
+        </div>
+
+        <div id="wrapper">
+            <div id="scroller">
+                <div id="pullDown">
+                    <span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+                </div>
+                <div class="list-wrap" id="J_list-wrap">
+                </div>
+                <div id="pullUp">
+                    <span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- <div class="bottom-tips">附近只有这些了</div> -->
+
+        <script type="text/template" id="list-template">
+            {{~ it:item:index}}
+            <div class="list-item-wrap clearfix item">
+                <a class="item-left J_to_list" href="./list.html?locationId={{= item.locationId}}&lat={{= it.userLat}}&lng={{= it.userLng}}&locationLat={{= item.lat}}&locationLng={{= item.lng}}">
+                    <div class="item-name">{{= item.location}}</div>
+                    <div class="item-addr">{{= item.locationDetail}}</div>
+                    <div class="item-detail">
+                        <i class="free-icon"></i>
+                        <span class="item-free">可用{{= item.availableCount}}个</span>
+                        <i class="busy-icon"></i>
+                        <span class="item-busy">已用{{= item.usedCount}}个</span>
+                    </div>
+                </a>
+            </div>
+            {{~}}
+        </script>
+    </div>
+
+    <div id="loadingToast" style="display:none;">
+        <div class="weui-mask_transparent"></div>
+        <div class="weui-toast toast-wrap">
+            <i class="weui-loading weui-icon_toast"></i>
+            <p class="weui-toast__content toast-text">数据加载中</p>
+        </div>
+    </div>
+    <div id="toast" style="display: none;">
+        <div class="weui-mask_transparent"></div>
+        <div class="weui-toast toast-wrap">
+            <p class="weui-toast__content toast-text">加载失败</p>
+        </div>
+    </div>
+
+    
+        <script type="text/javascript" src="../lib/doT.min.js"></script>
+    
+<script type="text/javascript" src="../js/index-1978dd3b.js"></script></body>
+</html>

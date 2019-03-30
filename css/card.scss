@@ -1,0 +1,217 @@
+@import "./style.scss";
+
+.card-wrap {
+    .apply-btn, .charge-btn, .history-btn {
+        width: 90%;
+        margin: 0.4rem auto;
+        background: $primary-color;
+        &:active {
+            background: $primary-color;
+        }
+    }
+    .highlight-text {
+        color: $primary-color;
+    }
+}
+
+/*电卡申请*/
+.card-apply-wrap {
+    .card-apply-title {
+        font-size: 17px;
+        color: $dark-font-color;
+        padding-left: 15px;
+        height: 3;
+        line-height: 3;
+    }
+    .card-form-wrap {
+        margin-top: 0;
+    }
+    .weui-cell {
+        color: $dark-font-color;
+    }
+    .top-align {
+        align-items: flex-start;
+    }
+    .weui-label {
+        width: 90px;
+        color: $light-font-color;
+    }
+    .error-tips {
+        font-size: $md-font-size;
+        color: #f00;
+        height: 30px;
+        line-height: 30px;
+        padding-top: 8px;
+        padding-left: 15px;
+    }
+
+}
+.weui-picker__item {
+    font-size: $xl-font-size;
+}
+.success-dialog-tips {
+    h4 {
+        margin-bottom: 15px;
+        font-weight: 400;
+        font-size: $lg-font-size;
+    }
+    p {
+        text-align: center;
+        font-size: $md-font-size;
+        color: $light-font-color;
+    }
+}
+/*电卡充值*/
+.card-charge-wrap {
+    .card-no-wrap {
+        background: #fff;
+        margin-bottom: 0.2rem;
+        font-size: 0;
+    }
+    .card-charge-title {
+        font-size: $lg-font-size;
+        color: $dark-font-color;
+        border-bottom: 1px solid $border-color;
+        padding: 10px 15px;
+    }
+    .card-no {
+        &:before {
+            content: '';
+            float: left;
+            margin-right: 4px;
+            width: 0.6rem;
+            height: 0.6rem;
+            background: url(./images/card-no-icon.png) no-repeat;
+            background-size: 0.6rem 0.6rem;
+        }
+        i {
+            float: right;
+            width: 0.6rem;
+            height: 0.6rem;
+            background-image: url(./images/question-icon.png);
+            background-size: 0.6rem 0.6rem;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+    }
+    .input-wrap {
+        position: relative;
+        .card-no-input {
+            padding: 28px 15px;
+            box-sizing: border-box;
+            font-size: $lg-font-size;
+        }
+        .clear-icon {
+            width: 50px;
+            height: 50px;
+            background: url(./images/close-icon.png);
+            background-size: 16px 16px;
+            background-repeat: no-repeat;
+            background-position: center center;
+            position: absolute;
+            right: 0px;
+            top: 50%;
+            margin-top: -25px;
+        }
+    }
+    
+    .card-charge-balance {
+        font-size: $md-font-size;
+        color: $light-font-color;
+        padding: 10px 15px;
+        border-top: 1px solid $border-color;
+    }
+    .btn-wrap {
+        display: flex;
+        justify-content: space-around;
+        .price-btn {
+            flex: 1;
+            margin: 0.3rem 0.2rem;
+            padding: 0.2rem 0;
+            text-align: center;
+            border: 1px solid $border-color;
+            border-radius: 4px;
+            color: $dark-font-color;
+            font-size: $md-font-size;
+        }
+        .active-btn {
+            border-color: $primary-color;
+            background: $primary-color;
+            color: #fff;
+        }
+    }
+    .pay-wrap {
+        display: flex;
+        align-items: center;
+        background: #fff;
+        padding: $primary-padding-top $primary-padding-left;
+        font-size: $md-font-size;
+        color: $dark-font-color;
+        i {
+            width: 0.427rem;
+            height: 0.427rem;
+            display: inline-block;
+            margin-right: 6px;
+            background-image: url(./images/pay-icon.png);
+            background-size: 0.427rem 0.427rem;
+            background-position: center center;
+            background-repeat: no-repeat;
+        } 
+    }
+    .card-error {
+        font-size: $md-font-size;
+        color: #f00;
+        margin-bottom: 0.2rem;
+        padding-left: 15px;
+    }
+}
+
+/*充值成功*/
+.charge-card-result {
+    .circle-bg {
+        width: 2.68rem;
+        height: 2.68rem;
+        border-radius: 2rem;
+        background: #1fb922;
+        margin: 0 auto;
+        position: relative;
+        margin-top: 1.5rem;
+        margin-bottom: 0.6rem;
+        .icon {
+            height: 1.03rem;
+            background-image: url(./images/complete.png);
+            background-size: 1.43rem 1.03rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -0.5rem;
+            margin-left: -0.71rem;
+            animation: widthAni 0.5s linear;
+            animation-fill-mode: forwards;
+        }
+    }
+    .success-text {
+        text-align: center;
+        font-size: $xl-font-size;
+        color: $dark-font-color;
+        margin-bottom: 0.6rem;
+    }
+    .success-detail {
+        text-align: center;
+        font-size: $md-font-size;
+        color: $light-font-color;
+        span {
+            margin: 0 0.2rem;
+        }
+        margin-bottom: 0.8rem;
+    }
+}
+@keyframes widthAni {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 1.43rem;
+    }
+}
+

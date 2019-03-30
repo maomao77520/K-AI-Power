@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>充电站列表</title>
+    
+        <link href="../lib/weui.min.css" rel="stylesheet">
+    
+
+    
+        <script type="text/javascript" src="../lib/jquery.min.js"></script>
+    
+        <script type="text/javascript" src="../lib/flexible.min.js"></script>
+    
+        <script type="text/javascript" src="../lib/weixin-1.2.0.js"></script>
+    
+        <script type="text/javascript" src="../lib/weui.min.js"></script>
+    
+
+
+<link href="../css/scanqrcode-79513b7e.css" rel="stylesheet"></head>
+<body>
+    <div class="second-list-wrap" id="J_second-list"></div>
+
+    <script type="text/template" id="second-list-template">
+        <div class="second-list-top">
+            <div class="list-item-wrap clearfix">
+                <div class="item-left">
+                    <div class="item-name">{{= it.location}}</div>
+                    <div class="item-addr">{{= it.locationDetail}}</div>
+                    <div class="item-detail">
+                        <i class="free-icon"></i>
+                        <span class="item-free">可用{{= it.availableCountTotal || 0}}个</span>
+                        <i class="busy-icon"></i>
+                        <span class="item-busy">已用{{= it.usedCountTotal || 0}}个</span>
+                    </div>
+                </div>
+                <a class="item-right J_Navigation" data-location="{{= it.location}}" data-addr="{{= it.locationDetail}}" data-lat="{{= it.lat}}" data-lng="{{= it.lng}}">
+                    <div class="item-dis-icon"></div>
+                    <div class="item-dis">
+                    {{? it.distance >= 1}}
+                        {{= it.distance.toFixed(2)}}km
+                    {{?? it.distance < 0}}
+
+                    {{??}}
+                        {{= parseInt(it.distance * 1000)}}m
+                    {{?}}
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="second-list-block">
+        {{~ it.content:item:index}}
+            <a class="second-list-item" href="./detail.html?id={{= item.deviceId}}&lat={{=it.userLat}}&lng={{=it.userLng}}">
+                <div class="second-item-left">
+                    {{? item.chargerIndex == 10}}
+                        {{= item.chargerIndex}}
+                    {{??}}
+                        0{{= item.chargerIndex}}
+                    {{?}}
+                </div>
+                <div class="second-item-right">
+                    <div class="second-item-name">
+                    {{? item.chargerIndex == 10}}
+                        {{= item.chargerIndex}}号充电站
+                    {{??}}
+                        0{{= item.chargerIndex}}号充电站
+                    {{?}}
+                    </div>
+                    <div class="second-item-detail">
+                        <span class="icon-wrap free-icon">
+                            <i></i>
+                            <span class="icon-text">可用{{= item.availableCount}}个</span>
+                        </span>
+                        <span class="icon-wrap used-icon">
+                            <i></i>
+                            <span class="icon-text">已用{{= item.usedCount}}个</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="second-item-icon"></div>
+            </a>
+        {{~}}
+        </div>
+    </script>
+
+    <div id="loadingToast" style="display:none;">
+        <div class="weui-mask_transparent"></div>
+        <div class="weui-toast toast-wrap">
+            <i class="weui-loading weui-icon_toast"></i>
+            <p class="weui-toast__content toast-text">数据加载中</p>
+        </div>
+    </div>
+
+    <div id="toast" style="display: none;">
+        <div class="weui-mask_transparent"></div>
+        <div class="weui-toast toast-wrap">
+            <p class="weui-toast__content toast-text">加载失败</p>
+        </div>
+    </div>
+
+    
+        <script type="text/javascript" src="../lib/doT.min.js"></script>
+    
+<script type="text/javascript" src="../js/scanqrcode-79513b7e.js"></script></body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title></title>
+    <% for (var css in htmlWebpackPlugin.options.css) { %>
+        <link href="<%=htmlWebpackPlugin.options.css[css] %>" rel="stylesheet">
+    <% } %>
+
+    <% for (var prejs in htmlWebpackPlugin.options.prejs) { %>
+        <script type="text/javascript" src="<%=htmlWebpackPlugin.options.prejs[prejs] %>"></script>
+    <% } %>
+
+
+</head>
+<body>
+    <div class="finish-wrap" id="J_finish"></div>
+    <script type="text/template" id="J_template">
+        {{? it.slotStatus == 98 || it.slotStatus == 99}}
+            <div class="top">
+                <div class="circle-bg green">
+                    <div class="icon success-icon"></div>
+                </div>
+                <div class="title">充电已完成</div>
+            </div>
+            <div class="center">
+                <div class="line">
+                    <div class="name">订单编号</div>
+                    <div class="value">{{= it.outTradeNo}}</div>
+                </div>
+                <div class="line">
+                    <div class="name">充电时长</div>
+                    <div class="value">{{= it.totalTime}}小时</div>
+                </div>
+                <div class="line">
+                    <div class="name">开始时间</div>
+                    <div class="value">{{= it.startTime}}</div>
+                </div>
+                
+                <div class="line">
+                    <div class="name">订单金额</div>
+                    <div class="value">{{= (it.payment/100).toFixed(2)}}元</div>
+                </div>
+                <div class="line">
+                    <div class="name">平均功率</div>
+                    <div class="value params">{{= Math.round(it.electricityMa / 1000 * 220)}}W</div>
+                </div>
+            </div>
+        {{??}}
+            <div class="top">
+                <div class="circle-bg red">
+                    <div class="icon error-icon"></div>
+                </div>
+                <div class="title">充电已断开</div>
+            </div>
+            <div class="center" id="J_center_wrap">
+                <div class="line">
+                    <div class="name">订单编号</div>
+                    <div class="value">{{= it.outTradeNo}}</div>
+                </div>
+                <div class="line">
+                    <div class="name">断开原因</div>
+                    <div class="value">{{= it.reason}}</div>
+                </div>
+                <div class="line">
+                    <div class="name">开始时间</div>
+                    <div class="value">{{= it.startTime}}</div>
+                </div>
+                <div class="line">
+                    <div class="name">结束时间</div>
+                    <div class="value">{{= it.endTime}}</div>
+                </div>
+                <div class="line">
+                    <div class="name">已充时长</div>
+                    <div class="value">{{= it.chargedTime}}</div>
+                </div>
+                
+                <div class="line">
+                    <div class="name">订单金额</div>
+                    <div class="value">{{= (it.payment/100).toFixed(2)}}元</div>
+                </div>
+                <div class="line">
+                    <div class="name">退款金额</div>
+                    <div class="value">{{= (it.refundAmount/100).toFixed(2)}}元</div>
+                </div>
+            </div>
+        {{?}}
+        <div class="bottom" id="J_bottom_wrap">
+            <div class="detail-wrap">
+                <div class="detail-name">{{= it.location}}
+                {{? it.chargerIndex >=10 }}
+                    {{= it.chargerIndex}}号充电桩
+                {{??}}
+                    0{{= it.chargerIndex}}号充电桩
+                {{?}}</div>
+                <div class="block-wrap">
+                    <div class="detail-left">
+                        <div class="detail-item">
+                            <i class="place-icon"></i>
+                            <span>{{= it.locationDetail}}</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="num-icon"></i>
+                            <span>设备编号: {{= it.deviceId}}</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="socket-icon"></i>
+                            <span>插座编号: {{= it.slotSN}}</span>
+                        </div>
+                    </div>
+                    <div class="detail-right">
+                        <div class="circle-wrap">
+                            <div class="detail-num-text"></div>
+                            <span>
+                            {{? it.slotIndex >= 10}}
+                                {{= it.slotIndex}}
+                            {{??}}
+                                0{{= it.slotIndex}}
+                            {{?}}
+                            </span>
+                        </div>
+                        
+                        <div class="detail-num">插座号</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+
+    <div id="toast" style="display: none;">
+        <div class="weui-mask_transparent"></div>
+        <div class="weui-toast toast-wrap">
+            <p class="weui-toast__content toast-text">加载失败</p>
+        </div>
+    </div>
+
+    <% for (var js in htmlWebpackPlugin.options.js) { %>
+        <script type="text/javascript" src="<%=htmlWebpackPlugin.options.js[js] %>"></script>
+    <% } %>
+</body>
+</html>

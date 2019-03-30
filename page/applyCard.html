@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>电卡申请</title>
+    <% for (var css in htmlWebpackPlugin.options.css) { %>
+        <link href="<%=htmlWebpackPlugin.options.css[css] %>" rel="stylesheet">
+    <% } %>
+
+    <% for (var prejs in htmlWebpackPlugin.options.prejs) { %>
+        <script type="text/javascript" src="<%=htmlWebpackPlugin.options.prejs[prejs] %>"></script>
+    <% } %>
+</head>
+<body>
+    <div class="card-wrap card-apply-wrap">
+        <div class="card-apply-title">收货地址</div>
+        <div class="card-form-wrap weui-cells">
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">收货人</label></div>
+                <div class="weui-cell__bd">
+                    <input name="consignee" class="weui-input" type="text" placeholder="请输入收货人"/>
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">手机号码</label></div>
+                <div class="weui-cell__bd">
+                    <input name="phone" class="weui-input" type="tel" placeholder="请输入手机号码"/>
+                </div>
+            </div>
+            <a class="weui-cell weui-cell_access font14" href="javascript:;" id="J_city_picker">
+
+                <div class="weui-cell__hd"><label class="weui-label">所在地区</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" id="J_city_input" readonly="readonly" type="text" placeholder="请选择" name="location"/>
+                </div> 
+                <div class="weui-cell__ft"></div>
+            </a>
+            <div class="weui-cell top-align">
+                <div class="weui-cell__hd"><label class="weui-label">详细地址</label></div>
+                <div class="weui-cell__bd">
+                    <textarea name="locationDetail" class="weui-textarea" placeholder="如小区、楼栋号、单元室、门牌号等"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <p class="error-tips"></p>
+
+        <a href="javascript:;" class="weui-btn weui-btn_primary apply-btn">提交申请</a>
+    </div>
+
+    <div class="js_dialog" id="iosDialog2" style="display: none;">
+        <div class="weui-mask"></div>
+        <div class="weui-dialog">
+            <div class="weui-dialog__bd success-dialog-tips">
+                <h4>提交成功</h4>
+                <p>申请材料已提交，感谢您的使用！</p>
+            </div>
+            <div class="weui-dialog__ft">
+                <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary dialog-btn" id="J_close_dialog">确定</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" style="display: none;">
+        <div class="weui-mask_transparent"></div>
+        <div class="weui-toast toast-wrap">
+            <p class="weui-toast__content toast-text"></p>
+        </div>
+    </div>
+</body>
+</html>

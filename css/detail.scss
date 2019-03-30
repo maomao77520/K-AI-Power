@@ -1,0 +1,371 @@
+@import "./style.scss";
+
+.top-detail-wrap {
+    line-height: 1;
+    background: #fff;
+    .list-item-wrap {
+        border-bottom: 0;
+    }
+    .top-detail-info {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.2rem;
+        .detail-left {
+            flex: 1;
+        }
+        .detail-right {
+            float: right;
+            font-size: $sm-font-size;
+            color: $light-font-color;
+            text-align: center;
+            &:before {
+                display: block;
+                content: '';
+                width: 20px;
+                height: 20px;
+                margin: 0 auto 4px;
+                border: 1px solid #eee;
+            }
+        }
+    }
+    
+    .detail-name {
+        font-size: $lg-font-size;
+        color: $font-color;
+        line-height: 1.2;
+    }
+    .detail-addr {
+        color: $font-color;
+        font-size: $md-font-size;
+        margin-top: 0.2rem;
+        line-height: 1.2;
+    }
+    .detail-line {
+        color: $light-font-color;
+        font-size: $sm-font-size;
+        line-height: 1.2;
+        .detail-time {
+            float: right;
+        }
+
+    }
+    .top-btn-list {
+        padding-top: $primary-padding-top;
+        font-size: $md-font-size;
+        color: $light-font-color;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        .icon {
+            &:before {
+                content: ' ';
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                border: 1px solid #eee;
+                vertical-align: middle;
+                margin-right: 2px;
+            }
+        }
+    }
+}
+.middle-detail-wrap {
+    line-height: 1;
+    background: #fff;
+    margin-top: 0.2rem;
+    padding: $primary-padding-top $primary-padding-left;
+    .detail-item-line {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+        .detail-item-wrap {
+            margin: 0.2rem 0.071rem;
+        }
+
+        .detail-item {
+            width: 1.73rem;
+            height: 1.73rem;
+            text-align: center;
+            font-size: $md-font-size;
+            border-radius: 0.32rem;
+            margin-bottom: 0.15rem;
+            box-sizing: border-box;
+        }
+        .detail-item-status {
+            font-size: $sm-font-size;
+            text-align: center;
+            color: $light-font-color;
+        }
+        .detail-item-free {
+            border: 1px solid #999;
+            background: url(./images/socket.png);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: 0.93rem 0.4rem;
+        }
+        .detail-item-busy {
+            background: $primary-color;
+            border: 1px solid $primary-color;
+            font-size: $sm-font-size;
+            color: #fff;
+            padding: 0.3rem 0;
+            
+            .left-time {
+                margin: 0.1rem auto 0.15rem;
+                .icon {
+                    margin-left: -0.1rem;
+                    margin-right: -0.1rem;
+                }
+            }
+            .battery-list {
+                display: flex;
+                justify-content: space-between;
+                padding: 0 4px;
+                div {
+                    width: 3px;
+                    height: 0.25rem;
+                    background: #fff;
+                    opacity: 0.3;
+                }
+                .item-1 {
+                    opacity: 1;
+                }
+                .item-2 {
+                    animation: twinkling2 2s 0.2s linear infinite;
+                }
+                .item-3 {
+                    animation: twinkling3 2s 0.4s linear infinite;
+                }
+                .item-4 {
+                    animation: twinkling4 2s 0.6s linear infinite;
+                }
+                .item-5 {
+                    animation: twinkling5 2s 0.8s linear infinite;
+                }
+                .item-6 {
+                    animation: twinkling6 2s 1s linear infinite;
+                }
+                .item-7 {
+                    animation: twinkling7 2s 1.2s linear infinite;
+                }
+                .item-8 {
+                    animation: twinkling8 2s 1.4s linear infinite;
+                }
+                .item-9 {
+                    animation: twinkling9 2s 1.6s linear infinite;
+                }
+                .item-10 {
+                    animation: twinkling10 2s 1.8s linear infinite;
+                }
+            }
+        }
+        .busy-text {
+            color: $primary-color;
+        }
+    } 
+}
+
+@keyframes twinkling2 {
+    0% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    91% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 0.3
+    }
+}
+@keyframes twinkling3 {
+    0% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    81% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 0.3
+    }
+}
+@keyframes twinkling4 {
+    0% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    71% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 0.3
+    }
+}
+@keyframes twinkling5 {
+    0% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 1;
+    }
+    61% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 0.3
+    }
+}
+@keyframes twinkling6 {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+    51% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 0.3
+    }
+}
+@keyframes twinkling7 {
+    0% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 1;
+    }
+    41% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 0.3
+    }
+}
+@keyframes twinkling8 {
+    0% {
+        opacity: 1;
+    }
+    30% {
+        opacity: 1;
+    }
+    31% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 0.3
+    }
+}
+@keyframes twinkling9 {
+    0% {
+        opacity: 1;
+    }
+    20% {
+        opacity: 1;
+    }
+    21% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 0.3
+    }
+}
+@keyframes twinkling10 {
+    0% {
+        opacity: 1;
+    }
+    10% {
+        opacity: 1;
+    }
+    11% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 0.3
+    }
+}
+
+.bottom-detail-wrap {
+    background: #fff;
+    margin-top: 0.2rem;
+    padding: $primary-padding-top $primary-padding-left;
+    font-size: $sm-font-size;
+    color: $font-color;
+    .bottom-title {
+        padding-bottom: $primary-padding-top;
+        font-size: $lg-font-size;
+        display: flex;
+    }
+    .pay-way-wrap {
+        font-size: $md-font-size;
+        color: $light-font-color;
+        margin-left: 20px;
+        display: flex;
+        align-items: center;
+        i {
+            width: 0.427rem;
+            height: 0.427rem;
+            display: inline-block;
+            background-image: url(./images/pay-icon.png);
+            background-size: 0.427rem 0.427rem;
+            background-position: center center;
+            margin-right: 4px;
+        }
+    }
+    .bottom-price-line {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: $primary-padding-top;
+        div {
+            flex: 1;
+            font-size: $md-font-size;
+            color: $dark-font-color;
+            border-top: 1px solid $border-color;
+            border-bottom: 1px solid $border-color;
+            border-right: 1px solid $border-color;
+            text-align: center;
+            padding: 0.2rem 0;
+        }
+        div:first-child {
+            border-left: 1px solid $border-color;
+        }
+    }
+    .bottom-tips {
+        font-size: $md-font-size;
+        color: $light-font-color;
+        text-align: left;
+        margin: 0;
+        padding: 0;
+        line-height: 1.4;
+        padding-bottom: 0.2rem;
+    }
+}
+.detail-btn-wrap {
+    width: 90%;
+    margin: 0.4rem auto;
+    .detail-bottom-btn {
+        background: $primary-color;
+        i {
+            display: inline-block;
+            content: '';
+            width: 0.4rem;
+            height: 0.4rem;
+            background-image: url(./images/sao-icon.png);
+            background-size: 0.4rem 0.4rem;
+            background-position: center center;
+            background-repeat: no-repeat;
+            vertical-align: middle;
+            margin-right: 4px;
+            position: relative;
+            top: -1px;
+        }
+    }
+}

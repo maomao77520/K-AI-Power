@@ -1,0 +1,81 @@
+@import "./style.scss";
+
+.record-wrap {
+    line-height: 1;
+    .top-bar {
+        display: flex;
+        padding: $primary-padding-top $primary-padding-left;
+        background: #fff;
+        font-size: $lg-font-size;
+        color: $dark-font-color;
+        .order-finish, .order-cancel {
+            flex: 1;
+        }
+    }
+    .record-list {
+        margin-top: 0.2rem;
+        background: #fff;
+        .record-item {
+            padding: $primary-padding-top $primary-padding-left;
+            border-bottom: 1px solid $border-color;
+            display: block;
+            .line-1 {
+                display: flex;
+                .order-addr {
+                    flex: 1;
+                    font-size: $lg-font-size;
+                    color: $dark-font-color;
+                }
+                .order-status {
+                    float: right;
+                    font-size: $md-font-size;
+                    color: $light-font-color;
+                }
+            }
+            .line-2 {
+                font-size: $md-font-size;
+                color: $light-font-color;
+                display: flex;
+                align-items: center;
+                margin-top: 0.3rem;
+                .left-block {
+                    flex: 1;
+                }
+                .right-block {
+                    float: right;
+                    width: 3em;
+                    height: 3em;
+                    line-height: 3em;
+                    border-radius: 2em;
+                    background: $primary-color;
+                    text-align: center;
+                    color: #fff;
+                    span {
+                        font-size: $lg-font-size;
+                    }
+                    
+                }
+                .order-time-wrap {
+                    margin-bottom: 0.15rem;
+                }
+                .time-icon, .price-icon {
+                    display: inline-block;
+                    width: 14px;
+                    height: 14px;
+                    vertical-align: middle;
+                    background-size: 14px 14px;
+                    background-position: center center;
+                    position: relative;
+                    top: -1px;
+                    margin-right: 4px;
+                }
+                .time-icon {
+                    background-image: url(./images/time-icon.png);
+                }
+                .price-icon {
+                    background-image: url(./images/price-icon.png);
+                }
+            }
+        }
+    }
+}
