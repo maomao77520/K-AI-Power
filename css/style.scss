@@ -37,7 +37,13 @@ html {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     tap-highlight-color: rgba(0, 0, 0, 0);
 }
-
+.clearfix:after {
+    display: block;
+    content: '';
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
 .list-item-wrap {
     line-height: 1;
     padding: $primary-padding-top 0;
