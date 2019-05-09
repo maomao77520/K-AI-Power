@@ -115,25 +115,50 @@
             background: $primary-color;
         }
     }
-    .pay-wrap {
-        display: flex;
-        align-items: center;
-        i {
-            width: 0.427rem;
-            height: 0.427rem;
-            display: inline-block;
-            margin-right: 6px;
-            background-image: url(./images/pay-icon.png);
-            background-size: 0.427rem 0.427rem;
-            background-position: center center;
-            background-repeat: no-repeat;
-        }
+    .pay-block {
         background: #fff;
         margin-top: 0.2rem;
-        padding: $primary-padding-top $primary-padding-left;
         font-size: $md-font-size;
         color: $dark-font-color;
+        .pay-title {
+            padding: $primary-padding-top $primary-padding-left;
+            
+        }
+        .pay-wrap {
+            display: flex;
+            align-items: center;
+            border-top: 2px solid #f9f9f9;
+            padding: $primary-padding-top $primary-padding-left;
+            position: relative;
+            .charge-balance {
+                color: #10aeff;
+                margin-left: 20px;
+            }
+            .pay-icon {
+                width: 0.427rem;
+                height: 0.427rem;
+                display: inline-block;
+                margin-right: 6px;
+                background-image: url(./images/pay-icon.png);
+                background-size: 0.427rem 0.427rem;
+                background-position: center center;
+                background-repeat: no-repeat;
+            }
+            .checked {
+                position: absolute;
+                right: $primary-padding-left;
+                top: 50%;
+                margin-top: -0.126rem;
+                width: 0.346rem;
+                height: 0.253rem;
+                background-image: url(./images/radio-checked.png);
+                background-size: 0.346rem 0.253rem;
+                background-position: center center;
+                background-repeat: no-repeat;
+            }
+        }
     }
+    
     .bottom-logo {
         width: 100%;
         height: 0.69rem;

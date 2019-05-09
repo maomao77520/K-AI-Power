@@ -17,6 +17,7 @@ module.exports = {
         'chargeCard',
         'chargeCardSucc',
         'chargeBalance',
+        'chargeBalanceSucc'
     ],
     prejs: [
         '../lib/jquery.min.js',

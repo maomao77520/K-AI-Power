@@ -1,5 +1,41 @@
 @import "./style.scss";
 .charge-wrap {
+    .top-info-wrap {
+        background: $primary-color;
+        padding: 0.2rem 0;
+        position: relative;
+        .user-icon {
+            float: left;
+            width: 1.4rem;
+            height: 1.4rem;
+            margin-left: 0.3rem;
+            margin-right: 0.3rem;
+            border-radius: 1rem;
+            background-size: 1.4rem 1.4rem;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+        .user-detail {
+            flex: 1;
+            margin-left: 0.4rem;
+            font-size: $md-font-size;
+            color: #fff;
+        }
+        .user-name, .user-phone {
+            height: 0.75rem;
+            line-height: 0.75rem;
+        }
+        .account-btn {
+            height: 0.8rem;
+            line-height: 0.8rem;
+            font-size: $lg-font-size;
+            color: #fff;
+            position: absolute;
+            right: 0.3rem;
+            top: 50%;
+            margin-top: -0.4rem;
+        }
+    }
     .list-title {
         font-size: $md-font-size;
         color: $primary-color;

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>充值成功</title>
+    <% for (var css in htmlWebpackPlugin.options.css) { %>
+        <link href="<%=htmlWebpackPlugin.options.css[css] %>" rel="stylesheet">
+    <% } %>
+
+    <% for (var prejs in htmlWebpackPlugin.options.prejs) { %>
+        <script type="text/javascript" src="<%=htmlWebpackPlugin.options.prejs[prejs] %>"></script>
+    <% } %>
+</head>
+<body>
+    <div class="charge-balance-wrap" style="display: none;">
+        <div class="top-img"></div>
+        <div class="tips1">您已成功充值<span class="number" id="J_charge_total"></span>元！</div>
+        <div class="tips2">祝您用电愉快</div>
+    </div>
+
+    <div id="loadingToast" style="display:none;">
+        <div class="weui-mask_transparent"></div>
+        <div class="weui-toast toast-wrap">
+            <i class="weui-loading weui-icon_toast"></i>
+            <p class="weui-toast__content toast-text">数据加载中</p>
+        </div>
+    </div>
+
+    <div id="toast" style="display: none;">
+        <div class="weui-mask_transparent"></div>
+        <div class="weui-toast toast-wrap">
+            <p class="weui-toast__content toast-text">加载失败</p>
+        </div>
+    </div>
+</body>
+</html>

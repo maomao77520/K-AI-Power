@@ -79,7 +79,16 @@ $(document).ready(function () {
         fail: function (err) {
             com.showToast();
         }
-    })
+    });
+
+    $.ajax({
+        url: '/amount/getBalnaceInfo',
+        type: 'post',
+        contentType: 'application/json',
+        success: function(res) {
+            $('#J_my_balance').text(res.data.currentAmount + '元');
+        }
+    });
     
 
     var tpl = doT.template($('#J_top_detail_template').html())({
@@ -103,6 +112,18 @@ $(document).ready(function () {
 
     $('#J_close_dialog').on('click', function (e) {
         $('#iosDialog2').fadeOut(200);
+    });
+
+    $('.pay-wrap').on('click', function(e) {
+        $('.checked-icon').removeClass('checked');
+        $(this).find('.checked-icon').addClass('checked');
+    });
+
+    $('#J_charge_balance').on('click', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        // window.location.href = './chargeBalance.html?deviceId=' + deviceId;
+        window.location.href = '/amount/getBalanceProfileProxy?deviceId=' + deviceId;
     });
 
     var lock = false;
