@@ -23,6 +23,7 @@ var defaultPriceData = [
     }];
 var price = 1;
 var time = 4;
+var payType = 'wechat';
 
 $(document).ready(function () {
     var deviceId = com.parseQuery('deviceId');
@@ -117,6 +118,7 @@ $(document).ready(function () {
     $('.pay-wrap').on('click', function(e) {
         $('.checked-icon').removeClass('checked');
         $(this).find('.checked-icon').addClass('checked');
+        payType = $(this).data('type');
     });
 
     $('#J_charge_balance').on('click', function(e) {
@@ -132,33 +134,64 @@ $(document).ready(function () {
             return;
         }
         lock = true;
-        $.ajax({
-            url: '/charger/createOrder',
-            type: 'post',
-            data: JSON.stringify({
-                accesstoken: 'asdasdwedf565665',
-                payment: price * 100,
-                payHours: time,
-                openId: openId,
-                deviceId: deviceId,
-                slotIndex: slotIndex
-            }),
-            contentType: 'application/json',
-            success: function (res) {
-                lock = false;
-                if (res.status == 0 && res.data) {
-                    var d = res.data;
-                    onBridgeReady(d.appid, d.timeStamp, d.nonce_str, d.prepay_id, d.sign, d.out_trade_no);
+
+        if (payType == 'wechat') {
+            $.ajax({
+                url: '/charger/createOrder',
+                type: 'post',
+                data: JSON.stringify({
+                    accesstoken: 'asdasdwedf565665',
+                    payment: price * 100,
+                    payHours: time,
+                    openId: openId,
+                    deviceId: deviceId,
+                    slotIndex: slotIndex
+                }),
+                contentType: 'application/json',
+                success: function (res) {
+                    lock = false;
+                    if (res.status == 0 && res.data) {
+                        var d = res.data;
+                        onBridgeReady(d.appid, d.timeStamp, d.nonce_str, d.prepay_id, d.sign, d.out_trade_no);
+                    }
+                    else if (res.status == 1 && res.data) { // errorCode=1002, 插座被占用
+                        window.location.href = './error.html?deviceId='
+                        + deviceId + '&slotIndex=' + slotIndex + '&errorCode=' + res.data.errorCode;
+                    }
+                },
+                error: function (err) {
+                    lock = false;
                 }
-                else if (res.status == 1 && res.data) { // errorCode=1002, 插座被占用
-                    window.location.href = './error.html?deviceId='
-                    + deviceId + '&slotIndex=' + slotIndex + '&errorCode=' + res.data.errorCode;
+            });
+        } else {
+            $.ajax({
+                url: '/amount/payAndOpenSlot',
+                type: 'post',
+                data: JSON.stringify({
+                    deviceId: deviceId,
+                    slotIndex: slotIndex,
+                    payment: price * 100,
+                    payHours: time,
+                    openId: openId,
+                    accesstoken: 'asdasdwedf565665'
+                }),
+                contentType: 'application/json',
+                success: function (res) {
+                    lock = false;
+                    if (res.status == 0) {
+                        window.location.href = "./progress.html?deviceId="
+                        + deviceId + '&slotIndex=' + slotIndex + '&outTradeNo=' + out_trade_no;
+                    } else {
+                        window.location.href = './error.html?deviceId='
+                        + deviceId + '&slotIndex=' + slotIndex + '&errorCode=' + res.data.errorCode;
+                    }
+                },
+                error: function (err) {
+                    lock = false;
                 }
-            },
-            error: function (err) {
-                lock = false;
-            }
-        });
+            });
+        }
+        
     });
 
     function onBridgeReady(appId, timeStamp, nonceStr, prepay_id, paySign, out_trade_no){
