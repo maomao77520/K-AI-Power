@@ -100,6 +100,14 @@
         </div>
     </div>
 
+    <div id="loadingToast" style="display:none;">
+        <div class="weui-mask_transparent"></div>
+        <div class="weui-toast toast-wrap">
+            <i class="weui-loading weui-icon_toast"></i>
+            <p class="weui-toast__content toast-text">正在提交</p>
+        </div>
+    </div>
+
     <% for (var js in htmlWebpackPlugin.options.js) { %>
         <script type="text/javascript" src="<%=htmlWebpackPlugin.options.js[js] %>"></script>
     <% } %>

@@ -164,6 +164,7 @@ $(document).ready(function () {
                 }
             });
         } else {
+            $('#loadingToast').fadeIn(100);
             $.ajax({
                 url: '/amount/payAndOpenSlot',
                 type: 'post',
@@ -177,16 +178,18 @@ $(document).ready(function () {
                 }),
                 contentType: 'application/json',
                 success: function (res) {
+                    $('#loadingToast').fadeOut(100);
                     lock = false;
                     if (res.status == 0) {
                         window.location.href = "./progress.html?deviceId="
-                        + deviceId + '&slotIndex=' + slotIndex + '&outTradeNo=' + out_trade_no;
+                        + deviceId + '&slotIndex=' + slotIndex + '&outTradeNo=' + res.outTradeNo;
                     } else {
                         window.location.href = './error.html?deviceId='
                         + deviceId + '&slotIndex=' + slotIndex + '&errorCode=' + res.data.errorCode;
                     }
                 },
                 error: function (err) {
+                    $('#loadingToast').fadeOut(100);
                     lock = false;
                 }
             });

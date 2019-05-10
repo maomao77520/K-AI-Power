@@ -4,7 +4,7 @@ var com = require('./common.js');
 $(document).ready(function () {
 
     let deviceId = com.parseQuery('deviceId');
-
+    let amount, donation = 0;
     $.ajax({
         url: '/amount/getBalnaceInvest',
         type: 'POST',
@@ -34,6 +34,10 @@ $(document).ready(function () {
                 $('#J_price_wrap').html(tpl);
                 for (let i = 0; i < priceData.length; i++) {
                     if (priceData[i].defaultPackage) {
+                        amount = priceData[i].amount;
+                        if (priceData[i].donationAmount > 0) {
+                            donation = priceData[i].donationAmount;
+                        }
                         $('#J_actual_price').html('￥' + (priceData[i].donationAmount ? priceData[i].amount - priceData[i].donationAmount : priceData[i].amount) + '元');
                     }
                 }
@@ -43,7 +47,7 @@ $(document).ready(function () {
     });
 
 
-    var amount, donation = 0;
+    
     $('#J_price_wrap').on('click', 'a', function(e) {
         $('#J_price_wrap a').removeClass('active-btn');
         $(this).addClass('active-btn');
@@ -56,6 +60,7 @@ $(document).ready(function () {
 
     var lock = false;
     $('.charge-btn').on('click', function (e) {
+        console.log(amount, donation)
         if (lock) {
             return;
         }
@@ -65,10 +70,8 @@ $(document).ready(function () {
             type: 'post',
             data: JSON.stringify({
                 accesstoken: 'asdasdwedf565665',
-                payment: 1,
-                giveAmount: 0,
-                // payment: amount * 100,
-                // giveAmount: donation * 100,
+                payment: (amount-donation) * 100,
+                giveAmount: donation * 100,
                 lat: 0,  // 不知道要来干啥，张鹏说没有就传0
                 lng: 0
             }),
