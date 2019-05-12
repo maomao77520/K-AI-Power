@@ -38,7 +38,7 @@ $(document).ready(function () {
                         if (priceData[i].donationAmount > 0) {
                             donation = priceData[i].donationAmount;
                         }
-                        $('#J_actual_price').html('￥' + (priceData[i].donationAmount ? priceData[i].amount - priceData[i].donationAmount : priceData[i].amount) + '元');
+                        $('#J_actual_price').html('￥' + priceData[i].amount + '元');
                     }
                 }
                 
@@ -53,7 +53,7 @@ $(document).ready(function () {
         $(this).addClass('active-btn');
         amount = $(this).data('amount');
         donation = $(this).data('donation');
-        $('#J_actual_price').html('￥' + (donation ? amount - donation: amount) + '元');
+        $('#J_actual_price').html('￥' + amount + '元');
     });
 
 
@@ -70,7 +70,7 @@ $(document).ready(function () {
             type: 'post',
             data: JSON.stringify({
                 accesstoken: 'asdasdwedf565665',
-                payment: (amount-donation) * 100,
+                payment: amount * 100,
                 giveAmount: donation * 100,
                 lat: 0,  // 不知道要来干啥，张鹏说没有就传0
                 lng: 0

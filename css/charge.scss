@@ -134,15 +134,20 @@
                 color: #10aeff;
                 margin-left: 20px;
             }
-            .pay-icon {
+            .pay-icon, .balance-icon {
                 width: 0.427rem;
                 height: 0.427rem;
                 display: inline-block;
                 margin-right: 6px;
-                background-image: url(./images/pay-icon.png);
                 background-size: 0.427rem 0.427rem;
                 background-position: center center;
                 background-repeat: no-repeat;
+            }
+            .pay-icon {
+                background-image: url(./images/pay-icon.png);
+            }
+            .balance-icon {
+                background-image: url(./images/balance-icon.png);
             }
             .checked {
                 position: absolute;
